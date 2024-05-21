@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+    color:white;
+}
+
+body{
+  color: white;
+  background-color: #131314;
+  display: flex; /* Use flexbox for main layout */
+  flex-direction: column; /* Arrange elements vertically */
+  align-items: center; /* Center elements horizontally */
+}
+
+.cabecalho-pai{
+    width: 100%;
+    height: 12%;
+    border-bottom: 1px solid white;
+    
+    display: flex; 
+    justify-content: flex-start; 
+ 
+    
+   
+}
+
+main {
+    width: 80%; /* Responsive width */
+    margin: 0 auto;
+    display: flex; /* Use flexbox for content layout */
+    flex-direction: column; /* Arrange elements vertically */
+    align-items: center; /* Center elements horizontally */
+  }
+
+.cabecalho-titulo{
+    padding: 15px 0 0 15px;
+    color: white;
+}
+
+.img-titulo{
+    width: 80px;
+    margin-left:20px ;
+}
+
+.image-left{
+    width: 20vw;
+    height: 70vh;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+
+.image-right{
+    width: 20vw;
+    height: 70vh;
+    position: absolute;
+    top: 20%;
+    left: 75%;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    height: 90vh;
+    width: 50%;
+
+}
+
+.textarea{
+    
+    width: 80%;
+    height: 72vh;
+    max-height: 80vh; 
+    border: none;
+    resize: none;
+    background-color: #1E1F20; 
+    position: relative;
+    top: -1%;
+    text-align: justify;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 30px; 
+    padding: 20px;
+}
+
+.textarea::-webkit-scrollbar {
+    width: 12px;     
+    position: relative;
+    left:30%;          /* width of the entire scrollbar */
+  }
+  
+.textarea::-webkit-scrollbar-track {
+    background:#131314;        /* color of the tracking area */
+  }
+  
+.textarea::-webkit-scrollbar-thumb {
+    background-color:#131314 ;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+     /* creates padding around scroll thumb */
+  }
+
+.titulo-textarea{
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 30px; 
+    position: absolute;
+    top: 10%;
+    z-index: 1;
+    text-align: center;
+    font-style: italic;
+    word-spacing: 5px;
+    width: 700px;
+}
+
+.body-textarea{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px; 
+    position: absolute;
+    top: 20%;
+    z-index: 1;
+    text-align: center;
+    word-spacing: 2px;
+    width: 600px;
+}
+
+.instru-textarea {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 30px; 
+    position: absolute;
+    top: 45%;
+    z-index: 1;
+    text-align: justify;
+    width: 600px;
+}
+
+.list-textarea{
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    text-align: justify;
+    width: 500px;
+}
+
+.image-loading{
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    visibility: hidden;
+}
+
+.div-radio-button, .div-radio-button1{
+    display: flex;
+    width: 600px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    gap:15px;
+    position: absolute;
+    top:40%;
+    visibility: hidden;
+}
+
+.div-elementos{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.entrada_dados{
+    display: block;
+    margin: 0 auto;
+    background-color: #1E1F20;
+    border: none;
+    border-radius: 30px;
+    padding: 20px;
+    width: 29vw;
+    height: auto;
+    max-height: 70px;
+    position: relative;
+    top: 30%;
+}
+
+.entrada_dados::placeholder{
+    font-size: 18px;
+    font-style: oblique;
+    font-weight: 600;
+}
+
+.img-button{
+    width: 30px;
+    height: 10px;
+    position: absolute;
+}
+
+.button-run{
+    padding: 10px;
+    border-radius: 30px;
+    background-color: rgba(33,33,33, .5);
+    background-image: url(./image-button.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+    border: none;
+    position: relative;
+    top:30%;
+    left: 1%
+}
+
+.button-run:hover{
+    opacity: .7;
+}
+
+@media  screen and (max-width: 2000px){
+
+    .textarea{
+        width: 35vw;
+    }
+
+    .titulo-textarea{
+        font-size: 30px;
+     }
+     
+     .body-textarea{
+         font-size: 24px;
+     }
+     
+     .instru-textarea {  
+        font-size: 24px;
+        width: 500px;
+     }
+     
+     .list-textarea{ 
+         font-size: 22px;
+         width: 450px;  
+     }
+     .entrada_dados{
+        width: 30vw;
+     }
+}
+
+@media  screen and (max-width: 1780px){
+    .image-left{
+        left: 5%;
+        width: 350px;
+        height: 550px;
+    }
+    .image-right{
+        left: 73%;
+        width: 350px;
+        height: 550px;
+    }
+
+    .titulo-textarea{
+        font-size: 26px;
+     }
+     
+     .body-textarea{
+         font-size: 22px;
+         width: 450px;
+     }
+     
+     .instru-textarea {  
+        font-size: 22px;
+        width: 450px;
+     }
+     
+     .list-textarea{ 
+         font-size: 20px;
+         width: 400px;  
+     }
+}
+
+@media  screen and (max-width: 1320px){
+    .image-left{
+   display: none;
+      
+    }
+    .image-right{
+        display: none;
+    }
+    .textarea{
+        width: 50vw;
+    }
+    .entrada_dados{
+        width: 45vw;
+        height: 30vh;
+    }
+}
+
+@media screen and (max-width:950px){
+    .textarea{
+        width: 65vw;
+        height: 70vh;
+    }
+
+    .titulo-textarea{
+       font-size: 24px;
+    }
+    
+    .body-textarea{
+        font-size: 20px;
+    }
+    
+    .instru-textarea {  
+       font-size: 20px;
+       width: 400px;
+    }
+    
+    .list-textarea{ 
+        font-size: 18px;
+        width: 350px;  
+    }
+    .entrada_dados{
+        width: 58vw;
+        height: 25vh;
+    }
+
+}
+
+@media screen and (max-width:675px){
+    .cabecalho-pai{
+        width: 110vw;
+        position: relative;
+        left:5%
+    }
+
+    .textarea{
+        width: 80vw;
+        height: 100%;
+    }
+
+    .titulo-textarea{
+        font-size: 24px;
+     }
+     
+     .body-textarea{
+         font-size: 20px;
+         width: 450px;
+     }
+     
+     .instru-textarea {  
+        font-size: 20px;
+        width: 450px;
+     }
+     
+     .list-textarea{ 
+         font-size: 18px;
+         width: 400px;
+         
+         
+     }
+     .entrada_dados{
+         width: 75vw;
+         height: 30vh;
+     }
+     .button-run{
+        width: 70px;
+        height: 70px;
+     }
+     main{
+      
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        left: 11%;
+        top: 11%;
+     }
+
+     .img-titulo{
+        width: 80px;
+        margin-left:20px ;
+    }
+}
+
+@media  screen and  (max-width:580px){
+    main{
+        top: 12%;
+        left: 9%;
+       
+    }
+
+    .textarea{
+        width: 90vw;
+        height: 75vh;
+    }
+
+    .titulo-textarea{
+        font-size: 22px;
+        width: 400px;
+     }
+     
+     .body-textarea{
+         font-size: 20px;
+         width: 400px;
+     }
+     
+     .instru-textarea {  
+        font-size: 20px;
+        width: 400px;
+     }
+     
+     .list-textarea{ 
+         font-size: 18px;
+         width: 350px;  
+     }
+}
+
+@media  screen and (max-width:450px){  
+
+    .textarea{
+        height: 80%;
+    }
+
+    .titulo-textarea{
+        font-size: 20px;
+        width: 350px;
+     }
+     
+     .body-textarea{
+         font-size: 20px;
+         width: 350px;
+     }
+     
+     .instru-textarea {  
+        font-size: 20px;
+        width: 350px;
+     }
+     
+     .list-textarea{ 
+         font-size: 20px;
+         width: 300px;  
+     }
+     .entrada_dados{
+        height: 60px;
+     }
+
+     .button-run{
+        width: 60px;
+        height: 60px;
+     }
+     .div-radio-button, .div-radio-button1{
+       flex-direction: column;
+        
+     }
+}
+
+@media  screen and (max-width:400px){  
+    .titulo-textarea{
+        font-size: 18px;
+        width: 350px;
+     }
+     
+     .body-textarea{
+         font-size: 18px;
+         width: 320px;
+     }
+     
+     .instru-textarea {  
+        font-size: 18px;
+        width: 300px;
+     }
+     
+     .list-textarea{ 
+         font-size: 18px;
+         width: 280px;  
+     }
+}
+
+
+
+    

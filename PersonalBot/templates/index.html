@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>
+        {% block titulo %}
+        PersonalBot
+        {% endblock %}
+    </title>
+</head>
+{% block body %}
+<body>
+    <header class="cabecalho-pai">
+        <img class="img-titulo" src="../static/image-logo.png">  
+        <h1 class="cabecalho-titulo">PersonalBot</h1>
+    
+    </header>
+    <img class='image-left' src="../static/image-left.png">    
+    <img class='image-right' src="../static/image-right.png">
+    <main>
+        <section>
+                
+            <h1 class="titulo-textarea"> Seja Bem-vindo ao PersonalBot</h1>
+            <h2 class='body-textarea'> Eu sou um ChatBot desenvolvido com intuito de ajudar pessoas a conquistar o corpo de seus sonhos.</h2>
+            <p class="instru-textarea">Instruções de Uso: 
+                <ul class="list-textarea" >
+                    <li>Informe sua idade.</li>
+                    <li>Escolha o seu tipo fisico.</li>
+                    <li>Selecione o seu objetivo com seu corpo.</li>
+                    <li>Caso deseje executar novamente ou limpar a tela, digite: "sair" ou "fechar"</li>
+                </ul>
+            </p>
+            <img class="image-loading" src="../static/loading.gif">
+            <textarea class="textarea" readonly></textarea>
+            <div class= "div-radio-button" >
+                <input class="radio-button" type="radio" name="radio-b" value="ectomorfo"/>ectomorfo
+                <input class="radio-button" type="radio" name="radio-b" value="mesomorfo"  />mesomorfo
+                <input class="radio-button" type="radio" name="radio-b"  value="endomorfo" />endomorfo 
+            </div>
+            <div class= "div-radio-button1" >
+                <input class="radio-button1" type="radio" name="radio-c" value="emagrecer" />emagrecer
+                <input class="radio-button1" type="radio" name="radio-c" value="Ganho de massa"  />Ganho de massa
+                <input class="radio-button1" type="radio" name="radio-c"  value="definir corpo" />definir corpo 
+            </div>
+
+            <div class= "div-elementos">
+                <input class ="entrada_dados" placeholder="Digite sua Idade: " required></input>
+                <button class="button-run"  onclick="validaIdade()" required></button>
+            </div>
+        </section>
+    </main>
+</body>
+{% endblock %}
+<script>
+
+    const tipoFisico=document.querySelectorAll(".radio-button")
+    const objetivoFisico=document.querySelectorAll(".radio-button1")
+    const cab = document.querySelector("h1")
+    const div_radio=document.querySelector('.div-radio-button')
+    const div_radio1=document.querySelector('.div-radio-button1')
+    const textarea= document.querySelector('.textarea')
+    const cab_textarea=document.querySelector(".titulo-textarea")
+    const body_textarea=document.querySelector(".body-textarea")
+    const instru_textarea=document.querySelector(".instru-textarea")
+    const list_textarea =document.querySelector('.list-textarea')
+    const idade = document.querySelector(".entrada_dados")
+    const loading = document.querySelector(".image-loading")
+    const button =document.querySelector('.button-run')
+    let tipoFisicoSelecionado=false
+    let objetivoFisicoSelecionado =false
+    let flag = 0
+    
+    function validaIdade(){
+        cab_textarea.innerHTML=""
+        body_textarea.innerHTML=""
+        instru_textarea.innerHTML=""
+        list_textarea.innerHTML=""
+        button.disabled=true
+        
+
+        if (idade.value.toLowerCase().includes('fechar') || idade.value.toLowerCase().includes('sair')) {
+            window.location.reload(true)
+        }
+        
+        else if (idade.value <=0 || idade.value >120  || isNaN(idade.value)){
+            console.log(idade.value)
+            idade.disabled=true
+            idade.value=""
+            
+            body_textarea.style.color="red"
+            body_textarea.innerHTML=`Erro, tente novamente em 10 segundos`
+            loading.style.visibility = "visible"
+
+            setTimeout(function() {
+                idade.disabled = false
+                idade.focus()
+                body_textarea.innerHTML=""
+                window.location.reload(true)
+            },10000)
+        } 
+
+        else{
+            body_textarea.innerHTML=`Qual é o seu tipo fisico ?`
+            div_radio.style.visibility ='visible'
+            idade.disabled=true
+            return ++flag
+        }
+    }
+
+    async function geraPrompt(){
+        if (tipoFisicoSelecionado && objetivoFisicoSelecionado){
+            try {
+                const url ="http://127.0.0.1:5000/chatbot"
+                const option = {
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(idade.value,tipoFisico.value,objetivoFisico.value),
+                }
+
+                fetch(url,option).then(response => response.json()).then(data => {
+                    console.log(data.resposta)
+                    let dados=data.resposta
+                    const result=trataDados(dados)
+                    idade.value=""
+                    flag=0
+                    
+                })
+            }
+            catch (error) {
+                console.error("Erro ao executar a requisição HTTP", error)
+            }   
+        }
+        
+    }
+    
+    for(i=0 ; i< tipoFisico.length; i++){
+        tipoFisico[i].addEventListener('click', function() {
+        
+            tipoFisicoSelecionado=true
+            div_radio.style.visibility ='hidden'
+            div_radio1.style.visibility='visible'
+            body_textarea.innerHTML =" Qual é o seu objetivo na academia ?"
+        
+        });
+    
+        objetivoFisico[i].addEventListener('click', function() {
+            objetivoFisicoSelecionado=true
+            div_radio1.style.visibility='hidden'
+            body_textarea.innerHTML =""
+            
+            loading.style.visibility = "visible"
+            geraPrompt()
+            
+        });
+    }
+
+    document.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter' && idade.value !== undefined) {
+            if (flag===0){
+                validaIdade()
+            } 
+        }
+      });
+
+    function trataDados(dados){
+        loading.style.visibility = "hidden"
+        const text_format = dados.replace(/\*/g, ``);
+        textarea.innerHTML=text_format
+        idade.style.placeholder="Digite sair ou fechar"
+        idade.disabled=false
+        button.disabled=false
+    }
+</script>
+</html>
