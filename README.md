@@ -44,6 +44,7 @@ Para executar a aplicação localmente, siga estas etapas:
   <li>Clone este repositório em sua máquina local ou faça o download do arquivo ZIP
 </li>
   <li>Navegue até o diretório onde você salvou o código-fonte da aplicação.</li>
+ <li>Acesse o arquivo chatbot.py e altere a chaveAPI , informe sua API que pode ser gerada no Google IA Studio e salve..</li>
   <li>execute o arquivo main.py em um editor de codigo como VSCode e depois execute a url que aparecer no Output da aplicação:  <img src="https://github.com/hcinfo9/Personal-Bot/assets/167317747/33137c5f-8d03-47dc-9d41-49340911ab1e"/>
  como esse exemplo na imagem</li>
   <li>Inicie informando sua idade.</li>
