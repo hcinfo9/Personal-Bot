@@ -22,7 +22,7 @@ def chatbot():
 def gerar_resposta(idade, tipoFisico, objetivoTreino):
    
     #guardando nossa Api Key
-    GOOGLE_API_KEY='AIzaSyDe1-sxsVkimF7tPIVjU7DJP6in0RMrl_8'
+    GOOGLE_API_KEY='AIzaSyDqpY2WFXBUr9dq6F-GswuDSThwSC3bGO8'
     genai.configure(api_key=GOOGLE_API_KEY)
 
 
