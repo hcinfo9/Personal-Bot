@@ -2,9 +2,9 @@
 #pip install google-generativeai
 # ... (código anterior)
 
-from flask import jsonify, request
+from flask import jsonify, request # type: ignore
 from PersonalBot import app  
-import google.generativeai as genai
+import google.generativeai as genai # type: ignore
 
 
 @app.route("/chatbot", methods=["POST"])

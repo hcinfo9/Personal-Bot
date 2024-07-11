@@ -1,4 +1,4 @@
-from flask import render_template, url_for
+from flask import render_template # type: ignore
 from PersonalBot import app
 
 @app.route("/", methods=["GET","POST"])

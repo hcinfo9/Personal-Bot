@@ -1,13 +1,14 @@
-FROM python:3.11.9-alpine3.20
-
-COPY . /app
-
-RUN pip install google-generativeai
-
-RUN pip install --upgrade google-generativeai
+FROM python:3.11.9
 
 WORKDIR /app
 
+COPY . .
+
+RUN pip install Flask
+
+RUN pip install google-generativeai
+
 EXPOSE 5000
 
-CMD python main.py
+CMD ["python", "main.py"]
+
