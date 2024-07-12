@@ -29,4 +29,8 @@ jobs:
       - name: Build docker image
         run: docker build -t chatbot:${{ steps.generate_sha.outputs.sha }} .
 
-     
+      -name: Push image
+       run: |
+        docker push chatbot:${{ steps.generate_sha.outputs.sha }}
+        docker tag chatbot:${{ steps.generate_sha.outputs.sha }}  chatbot:latest
+        docker push chatbot:latest
