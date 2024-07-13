@@ -36,7 +36,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Build and push
-      uses: docker/build-push-actions@v6
+      uses: docker/build-push-action@v6
       with:
         context: .
         push: true
@@ -45,11 +45,3 @@ jobs:
           hcinfo9/chatbot:latest
 
 
-    # - name: Build docker image
-    #   run: docker build -t hcinfo9/chatbot:${{ steps.generate_sha.outputs.sha }} .
-
-    # - name: Push image
-    #   run: |
-    #     docker push hcinfo9/chatbot:${{ steps.generate_sha.outputs.sha }}
-    #     docker tag hcinfo9/chatbot:${{ steps.generate_sha.outputs.sha }}  hcinfo9/chatbot:latest
-    #     docker push hcinfo9/chatbot:latest
