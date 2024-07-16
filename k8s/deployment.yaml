@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: api-chatbot
-          image: hcinfo9/chatbot:58045ce3bd25
+          image: hcinfo9/chatbot:f0b4572f4b9d
           resources:
             requests:
               cpu: 200m
