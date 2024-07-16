@@ -43,13 +43,3 @@ jobs:
         tags: |
           hcinfo9/chatbot:${{ steps.generate_sha.outputs.sha }}
           hcinfo9/chatbot:latest
-
-
-    # - name: Build docker image
-    #   run: docker build -t hcinfo9/chatbot:${{ steps.generate_sha.outputs.sha }} .
-
-    # - name: Push image
-    #   run: |
-    #     docker push hcinfo9/chatbot:${{ steps.generate_sha.outputs.sha }}
-    #     docker tag hcinfo9/chatbot:${{ steps.generate_sha.outputs.sha }}  hcinfo9/chatbot:latest
-    #     docker push hcinfo9/chatbot:latest
