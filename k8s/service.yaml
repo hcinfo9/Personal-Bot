@@ -1,17 +1,17 @@
-apiVersion: v1
-kind: Service
+# apiVersion: v1
+# kind: Service
 
-metadata:
-  name: chatbot-service
-  labels:
-    app: chatbot
+# metadata:
+#   name: chatbot-service
+#   labels:
+#     app: chatbot
 
-spec:
-  selector:
-    app: chatbot
-  type: ClusterIP
-  ports:
-  - name: chatbot-service
-    port: 50
-    targetPort: 5000
-    protocol: TCP
+# spec:
+#   selector:
+#     app: chatbot
+#   type: ClusterIP
+#   ports:
+#   - name: chatbot-service
+#     port: 50
+#     targetPort: 5000
+#     protocol: TCP
