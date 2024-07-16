@@ -1,28 +1,28 @@
-# apiVersion: apps/v1
-# kind: Deployment
+apiVersion: apps/v1
+kind: Deployment
 
-# metadata:
-#   name: chatbot-deployment
-#   labels:
-#     app: chatbot
+metadata:
+  name: chatbot-deployment
+  labels:
+    app: chatbot
 
-# spec: 
-#   replicas: 5
-#   selector:
-#     matchLabels:
-#       app: chatbot
-#   template:
-#     metadata:
-#       labels:
-#         app: chatbot
-#     spec:
-#       containers:
-#         - name: api-chatbot
-#           image: hcinfo9/chatbot:1fcf5ff5371e
-#           resources:
-#             requests:
-#               cpu: 200m
-#               memory: 256Mi
-#             limits: 
-#               cpu: 300m
-#               memory: 256Mi
+spec: 
+  replicas: 5
+  selector:
+    matchLabels:
+      app: chatbot
+  template:
+    metadata:
+      labels:
+        app: chatbot
+    spec:
+      containers:
+        - name: api-chatbot
+          image: hcinfo9/chatbot:58045ce3bd25
+          resources:
+            requests:
+              cpu: 200m
+              memory: 256Mi
+            limits: 
+              cpu: 300m
+              memory: 256Mi
